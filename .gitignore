@@ -1,0 +1,16 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Resultados locales (opcional, si no quieres subir las capturas)
+assets/screenshots/*.png
+
+# IDEs
+.vscode/
+.idea/
