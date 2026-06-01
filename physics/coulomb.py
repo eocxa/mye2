@@ -2,7 +2,7 @@ import numpy as np
 from physics.vectors import calculate_distance, calculate_unit_vector
 
 # Constante de Coulomb en N·m²/C²
-K = 8.9875517923e9
+K = 8.99e9
 
 def calculate_coulomb_force(charge1, charge2):
     """

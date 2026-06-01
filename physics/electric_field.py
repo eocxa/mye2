@@ -2,7 +2,7 @@ import numpy as np
 from physics.vectors import calculate_distance, calculate_unit_vector
 
 # Constante de Coulomb en N·m²/C²
-K = 8.9875517923e9
+K = 8.99e9
 
 def calculate_electric_field_at_point(point_pos, charges):
     """
@@ -17,8 +17,7 @@ def calculate_electric_field_at_point(point_pos, charges):
         r = calculate_distance(charge_pos, point_pos)
         
         if r == 0:
-            # Según los requerimientos, debemos impedir el cálculo sobre una carga
-            continue 
+            raise ValueError(f"No se puede calcular el campo eléctrico exactamente en la posición de la carga (r=0).")
             
         r_hat = calculate_unit_vector(charge_pos, point_pos)
         
