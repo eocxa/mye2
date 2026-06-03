@@ -48,34 +48,34 @@ streamlit run app.py
 La interfaz web permite arrastrar las cargas directamente sobre el diagrama, ver la fuerza neta en tiempo real y generar mapas de campo eléctrico configurables.
 
 ## 4. Ejemplos de Uso
-1.  **Modo 1D:** Ingrese 2 cargas sobre el eje X (ej. $q_1 = +2\ \mu\text{C}$ en $x = 0$, $q_2 = -2\ \mu\text{C}$ en $x = 1$). El sistema mostrará la fuerza de atracción y la dirección de los vectores.
+1.  **Modo 1D:** Ingrese 2 cargas sobre el eje X (ej. q₁ = +2 µC en x = 0, q₂ = −2 µC en x = 1). El sistema mostrará la fuerza de atracción y la dirección de los vectores.
 2.  **Modo 2D:** Ingrese 3 cargas en un triángulo. Seleccione una carga para ver la fuerza neta resultante y su ángulo de inclinación.
-3.  **Campo Eléctrico:** Defina puntos en el plano (ej. $(0,0)$, $(1,1)$, $(2,2)$) para obtener la magnitud y dirección del campo eléctrico total en esas coordenadas.
+3.  **Campo Eléctrico:** Defina puntos en el plano (ej. (0, 0), (1, 1), (2, 2)) para obtener la magnitud y dirección del campo eléctrico total en esas coordenadas.
 
 ## 5. Explicación de los Cálculos Implementados
 
 ### Ley de Coulomb
 Se calcula la fuerza entre cada par de cargas mediante:
 
-$$
-F = k \, \frac{|q_1 q_2|}{r^2}
-$$
+```
+F = k · |q₁·q₂| / r²
+```
 
-donde $k = 8.99 \times 10^9 \ \text{N} \cdot \text{m}^2 / \text{C}^2$. El simulador descompone automáticamente esta fuerza en sus componentes $F_x$ y $F_y$.
+donde `k = 8.99 × 10⁹ N·m²/C²`. El simulador descompone automáticamente esta fuerza en sus componentes Fx y Fy.
 
 ### Principio de Superposición
-La fuerza neta $\vec{F}_{\text{neta}}$ sobre una carga se obtiene sumando vectorialmente todas las fuerzas individuales ejercidas por las demás cargas del sistema:
+La fuerza neta F⃗_neta sobre una carga se obtiene sumando vectorialmente todas las fuerzas individuales ejercidas por las demás cargas del sistema:
 
-$$
-\vec{F}_{\text{neta}} = \sum_i \vec{F}_i
-$$
+```
+F⃗_neta = Σ F⃗ᵢ
+```
 
 ### Campo Eléctrico
-Se calcula en cualquier punto del espacio sumando las contribuciones de cada carga $i$:
+Se calcula en cualquier punto del espacio sumando las contribuciones de cada carga i:
 
-$$
-\vec{E}_{\text{total}} = \sum_i k \, \frac{q_i}{r_i^2} \, \hat{r}_i
-$$
+```
+E⃗_total = Σ k · (qᵢ / rᵢ²) · r̂ᵢ
+```
 
 ## 6. Visualizaciones
 El simulador genera automáticamente tres tipos de gráficos que se guardan en la carpeta `assets/screenshots/`:
