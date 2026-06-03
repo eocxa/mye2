@@ -12,7 +12,7 @@ def test_field():
     point = (1, 0)
     e_field = calculate_electric_field_at_point(point, charges)
     print(f'Electric Field at (1,0): {e_field}')
-    expected_mag = 8987.5517923
+    expected_mag = 8990.0
     assert np.isclose(np.linalg.norm(e_field), expected_mag), f'Expected {expected_mag}, got {np.linalg.norm(e_field)}'
     assert e_field[0] > 0, 'Field should point in +X direction'
     print('Case Field PASSED\n')

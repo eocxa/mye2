@@ -12,7 +12,10 @@ Este simulador es una herramienta computacional desarrollada en Python para anal
 *   **Lenguaje:** Python 3.x
 *   **NumPy:** Utilizada para el manejo de vectores, componentes rectangulares y cálculos de magnitudes.
 *   **Matplotlib:** Empleada para la generación de visualizaciones estáticas, diagramas de fuerzas y mapas de campo eléctrico.
+*   **Plotly:** Gráficos interactivos con zoom y hover para las visualizaciones 2D y mapas de campo.
+*   **Streamlit:** Interfaz web interactiva con manipulación directa de cargas mediante arrastre.
 *   **Dataclasses:** Para una representación estructurada y limpia del modelo de datos de las cargas.
+*   **fpdf2:** Generación del reporte PDF.
 
 ## 3. Instrucciones de Instalación y Ejecución
 
@@ -32,10 +35,23 @@ Tener instalado Python 3.8 o superior.
    ```
 
 ### Ejecución
-Para iniciar el simulador interactivo, ejecute el archivo principal:
+
+**Interfaz de línea de comandos:**
 ```bash
 python main.py
 ```
+
+**Interfaz web interactiva (Streamlit):**
+```bash
+streamlit run app.py
+```
+La interfaz web permite arrastrar las cargas directamente sobre el diagrama, ver la fuerza neta en tiempo real y generar mapas de campo eléctrico configurables.
+
+**Generar el reporte PDF:**
+```bash
+python generate_report.py
+```
+El reporte se genera en `report/reporte.pdf`.
 
 ## 4. Ejemplos de Uso
 1.  **Modo 1D:** Ingrese 2 cargas sobre el eje X (ej. $q_1=2\mu C$ en $x=0$, $q_2=-2\mu C$ en $x=1$). El sistema mostrará la fuerza de atracción y la dirección de los vectores.
@@ -59,9 +75,18 @@ $$\vec{E}_{total} = \sum k \frac{q_i}{r_i^2} \hat{r}_i$$
 
 ## 6. Visualizaciones
 El simulador genera automáticamente tres tipos de gráficos que se guardan en la carpeta `assets/screenshots/`:
-*   **Distribución 1D/2D:** Muestra la posición de las cargas (Rojo: Positivas, Azul: Negativas).
-*   **Vectores de Fuerza:** Representa la fuerza neta sobre la carga seleccionada.
-*   **Mapa de Campo Eléctrico:** Genera un diagrama de líneas de campo y un mapa de intensidad (logarítmico) para visualizar la influencia del sistema en el espacio.
+
+### Caso 1D — Fuerza entre 2 cargas en el eje X
+![Fuerza 1D](assets/screenshots/fuerza_1d.png)
+*Dos cargas positivas (rojo) separadas 1 m. La flecha verde indica la fuerza neta de repulsión sobre la carga seleccionada.*
+
+### Caso 2D — Fuerza neta en triángulo equilátero
+![Fuerza 2D](assets/screenshots/fuerza_2d.png)
+*Tres cargas positivas en triángulo equilátero. La fuerza neta sobre la carga superior es puramente vertical (Fx=0 por simetría).*
+
+### Mapa de Campo Eléctrico
+![Campo Eléctrico](assets/screenshots/campo_electrico.png)
+*Líneas de campo eléctrico generadas por una carga positiva en el origen. La intensidad se muestra en escala logarítmica (colores más claros = mayor intensidad).*
 
 ## 7. Validaciones
 El programa incluye protecciones contra:

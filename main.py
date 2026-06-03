@@ -138,7 +138,7 @@ def run_simulation(mode):
         if not ask_yes_no('¿Desea calcular el campo en otro punto?'):
             break
     if mode == '2':
-        generate_field_map(charges)
+        plot_electric_field(charges, grid_size=20, filename=FIELD_MAP_FILENAME)
     print('\n' + '-' * 30)
     input('Presione Enter para volver al menú principal...')
 
