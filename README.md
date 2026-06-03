@@ -47,14 +47,8 @@ streamlit run app.py
 ```
 La interfaz web permite arrastrar las cargas directamente sobre el diagrama, ver la fuerza neta en tiempo real y generar mapas de campo eléctrico configurables.
 
-**Generar el reporte PDF:**
-```bash
-python generate_report.py
-```
-El reporte se genera en `report/reporte.pdf`.
-
 ## 4. Ejemplos de Uso
-1.  **Modo 1D:** Ingrese 2 cargas sobre el eje X (ej. $q_1=2\mu C$ en $x=0$, $q_2=-2\mu C$ en $x=1$). El sistema mostrará la fuerza de atracción y la dirección de los vectores.
+1.  **Modo 1D:** Ingrese 2 cargas sobre el eje X (ej. $q_1 = +2\ \mu\text{C}$ en $x = 0$, $q_2 = -2\ \mu\text{C}$ en $x = 1$). El sistema mostrará la fuerza de atracción y la dirección de los vectores.
 2.  **Modo 2D:** Ingrese 3 cargas en un triángulo. Seleccione una carga para ver la fuerza neta resultante y su ángulo de inclinación.
 3.  **Campo Eléctrico:** Defina puntos en el plano (ej. $(0,0)$, $(1,1)$, $(2,2)$) para obtener la magnitud y dirección del campo eléctrico total en esas coordenadas.
 
@@ -62,16 +56,26 @@ El reporte se genera en `report/reporte.pdf`.
 
 ### Ley de Coulomb
 Se calcula la fuerza entre cada par de cargas mediante:
-$$F = k \frac{|q_1 q_2|}{r^2}$$
-donde $k = 8.99 \times 10^9 \, N \cdot m^2/C^2$. El simulador descompone automáticamente esta fuerza en sus componentes $F_x$ y $F_y$.
+
+$$
+F = k \, \frac{|q_1 q_2|}{r^2}
+$$
+
+donde $k = 8.99 \times 10^9 \ \text{N} \cdot \text{m}^2 / \text{C}^2$. El simulador descompone automáticamente esta fuerza en sus componentes $F_x$ y $F_y$.
 
 ### Principio de Superposición
-La fuerza neta $\vec{F}_{neta}$ sobre una carga se obtiene sumando vectorialmente todas las fuerzas individuales ejercidas por las demás cargas del sistema:
-$$\vec{F}_{neta} = \sum \vec{F}_i$$
+La fuerza neta $\vec{F}_{\text{neta}}$ sobre una carga se obtiene sumando vectorialmente todas las fuerzas individuales ejercidas por las demás cargas del sistema:
+
+$$
+\vec{F}_{\text{neta}} = \sum_i \vec{F}_i
+$$
 
 ### Campo Eléctrico
 Se calcula en cualquier punto del espacio sumando las contribuciones de cada carga $i$:
-$$\vec{E}_{total} = \sum k \frac{q_i}{r_i^2} \hat{r}_i$$
+
+$$
+\vec{E}_{\text{total}} = \sum_i k \, \frac{q_i}{r_i^2} \, \hat{r}_i
+$$
 
 ## 6. Visualizaciones
 El simulador genera automáticamente tres tipos de gráficos que se guardan en la carpeta `assets/screenshots/`:
